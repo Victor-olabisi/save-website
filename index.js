@@ -118,17 +118,14 @@ fetchBookMarks()
 // delete bookmark 
 function deleteBookmark(e){
  const item= e.target.parentElement;
-//  console.log(item);
  const name= e.target.nextElementSibling.children[1].textContent;
  const url =e.target.nextElementSibling.children[1].dataset.id;
- console.log(url);
-//  console.log(name);
+ 
  item.remove();
  const newbookmarks=bookmarks.filter((bookmark)=>{
    return name !== bookmark.name && url!== bookmark.url;
  
  });
- console.log(newbookmarks);
  bookmarks=[ ...newbookmarks]
  localStorage.setItem("bookmarks", JSON.stringify(bookmarks))
 }
